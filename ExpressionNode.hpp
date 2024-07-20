@@ -30,7 +30,14 @@ class ExpressionNode
     	virtual void printParent(int) = 0; 
     	
     	//destructor
-		virtual ~ExpressionNode() {delete left; delete right;}
+		virtual ~ExpressionNode() {
+			if(left != nullptr){
+				delete left;
+			}
+			if(right != nullptr){
+				delete right;
+			}
+		}
     
     	//returns parent node
     	string getParent() {return parent;};
@@ -56,7 +63,14 @@ class ConstantNode : public ExpressionNode
         }
         
         //destructor
-		~ConstantNode() {delete left; delete right;}
+		~ConstantNode() {
+			if(left != nullptr){
+				delete left;
+			}
+			if(right != nullptr){
+				delete right;
+			}
+		}
 		
 		//print with correct width spacing
     	void printParent(int n) { cout << setw(n) << getParent(); }
@@ -83,7 +97,14 @@ class OperatorNode : public ExpressionNode
     }
     
      //destructor
-	~OperatorNode() {delete left; delete right;}
+	~OperatorNode() {			
+		if(left != nullptr){
+				delete left;
+			}
+		if(right != nullptr){
+			delete right;
+		}
+	}
 
 	//print with correct width spacing
     void printParent(int n) { cout << setw(n) << getParent(); }

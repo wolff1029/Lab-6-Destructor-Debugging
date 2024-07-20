@@ -38,7 +38,10 @@ class myExpressionTree
 	//Recursive helper function that deallocates the memory space occupied by the 
 	//expression tree given the root node
 	void destroy(ExpressionNode* start){
-		delete start;
+		if(start != nullptr){
+			delete start;
+		}
+
 	};
 	
 	
